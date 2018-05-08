@@ -1,0 +1,16 @@
+
+#mac
+.DS_Store
+
+# eclipse
+.settings/
+.classpath
+.project
+
+#intellj
+.idea/
+*.iml
+
+target/
+
+

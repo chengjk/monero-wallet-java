@@ -170,7 +170,7 @@ public interface MoneroWallet {
 
   /**
    * Returns all wallet transactions specified, each containing payments, outputs, and other metadata depending on the transaction type.
-   * 
+   *
    * @param getIncoming specifies if incoming transactions should be retrieved
    * @param getOutgoing specifies if outgoing transactions should be retrieved
    * @param getPending specifies if pending transactions should be retrieved
@@ -182,4 +182,13 @@ public interface MoneroWallet {
    * @return List<MoneroTransaction> are the retrieved transactions
    */
   public List<MoneroTransaction> getTransactions(boolean getIncoming, boolean getOutgoing, boolean getPending, boolean getFailed, boolean getMemPool, Collection<String> paymentIds, Integer minHeight, Integer maxHeight);
+
+
+  /**
+   * get transaction by tx id
+   * @param txId
+   * @return
+   */
+  public MoneroTransaction getTransactionByTxId(String txId);
+
 }

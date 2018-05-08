@@ -407,6 +407,15 @@ public class MoneroWalletRpc implements MoneroWallet {
     return txs;
   }
 
+  public MoneroTransaction getTransactionByTxId(String txId) {
+    Map<String, Object> paramMap = new HashMap<String, Object>();
+    if (txId != null) paramMap.put("txid", txId);
+    Map<String, Object> respMap = sendRpcRequest("get_transfer_by_txid", paramMap);
+    Map<String, Object> resultMap = (Map<String, Object>) respMap.get("result");
+    Map<String, Object> transfer = (Map<String, Object>) resultMap.get("transfer");
+    MoneroTransaction tx = interpretTransaction(transfer);
+    return tx;
+  }
   private static URI parseUri(String endpoint) {
     try {
       return new URI(endpoint);
